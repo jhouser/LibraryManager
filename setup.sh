@@ -4,3 +4,4 @@ composer install
 cp env .env
 touch database/library.sqlite
 php artisan key:generate
+php artisan migrate
