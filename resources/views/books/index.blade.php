@@ -1,10 +1,16 @@
 @extends('app')
-
+@section('title', 'Books')
 @section('content')
-    <?php
-        foreach($books as $book) {
-            echo $book->name . "<br>";
-            echo $book->formatAuthors() . "<br><br>";
-        }
-    ?>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Authors</th>
+    </tr>
+    @foreach ($books as $book)
+        <tr>
+            <td>{{ $book->name }}</td>
+            <td>{{ $book->formatAuthors() }}</td>
+        </tr>
+    @endforeach
+</table>
 @stop
