@@ -13,7 +13,7 @@
             <div class="col-md-12">
                 <div class="form-group col-md-8">
                     <label for="authors">Authors:</label>
-                    <input type="text"class="form-control" name="authors" placeholder="Comma separated list"/>
+                    <input type="text"class="form-control" name="author"/>
                 </div>
             </div>
         </div>
