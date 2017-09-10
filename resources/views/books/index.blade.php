@@ -11,8 +11,16 @@
         <table class="table table-bordered table-hover table-responsive">
             <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Author</th>
+                    <th>
+                        <a href="{{App\Helper\SortingHelper::getSortingLink('title')}}">
+                            Title
+                        </a>
+                    </th>
+                    <th>
+                        <a href="{{App\Helper\SortingHelper::getSortingLink('author')}}">
+                            Author
+                        </a>
+                    </th>
                     <th>Delete</th>
                 </tr>
             </thead>
@@ -32,6 +40,7 @@
                 @endforeach
             </tbody>
         </table>
+        {{ $books->links() }}
     </div>
 </div>
 @stop

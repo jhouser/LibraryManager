@@ -1,5 +1,5 @@
 <div class="col-md-6">
-    <form method="get" action="{{url('books')}}">
+    <form method="get">
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group col-md-8">
@@ -21,6 +21,5 @@
                 <button class="btn btn-success" type="submit">Search</button>
             </div>
         </div>
-    </form>
     </form>
 </div>
