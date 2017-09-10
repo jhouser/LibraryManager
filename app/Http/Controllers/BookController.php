@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Book;
-use App\Author;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -19,9 +18,10 @@ class BookController extends Controller
         $title = $request->input('title');
         $author = $request->input('author');
         
-        $books = Book::whereHas('authors', function($query) use ($author) {
-            $query->where('name', 'like', "%$author%");
-        })->where('title', 'like', "%$title%")->get();
+        $books = Book::where([
+            ['title', 'like', "%$title%"],
+            ['author', 'like', "%$author%"]
+        ])->get();
         
         return view('books.index')->withBooks($books);
     }
@@ -35,19 +35,10 @@ class BookController extends Controller
     public function store(Request $request)
     {
         $data = $this->validate($request, [
-           'title' => 'required',
-            'authors' => 'required'
+            'title' => 'required',
+            'author' => 'required'
         ]);
-        $book = new Book();
-        $book->title = $data['title'];
-        $authors = explode(', ', $data['authors']);
-        $authorIds = [];
-        foreach($authors as $author) {
-            $authorRecord = Author::firstOrCreate(['name' => $author]);
-            $authorIds[] = $authorRecord->id;
-        }
-        $book->save();
-        $book->authors()->attach($authorIds);
+        Book::create($data);
         return back();
     }
 
