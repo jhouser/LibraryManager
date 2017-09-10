@@ -21,7 +21,13 @@
                 <tr>
                     <td>{{ $book->title }}</td>
                     <td>{{ $book->formatAuthors() }}</td>
-                    <td><button class="btn btn-default"><span class="glyphicon glyphicon-trash"></span></button></td>
+                    <td>
+                        <form action="{{url('books', $book)}}" method="POSt">
+                            {{ method_field('DELETE') }}
+                            {{csrf_field()}}
+                            <button class="btn btn-danger" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
