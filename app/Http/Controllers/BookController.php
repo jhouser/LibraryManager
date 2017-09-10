@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\Author;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -14,17 +15,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return view('books.index')->withBooks(Book::all());
     }
 
     /**
@@ -35,18 +26,21 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Book  $book
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Book $book)
-    {
-        //
+        $data = $this->validate($request, [
+           'title' => 'required',
+            'authors' => 'required'
+        ]);
+        $book = new Book();
+        $book->title = $data['title'];
+        $authors = explode(', ', $data['authors']);
+        $authorIds = [];
+        foreach($authors as $author) {
+            $authorRecord = Author::firstOrCreate(['name' => $author]);
+            $authorIds[] = $authorRecord->id;
+        }
+        $book->save();
+        $book->authors()->attach($authorIds);
+       return back();
     }
 
     /**
