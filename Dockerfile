@@ -5,7 +5,6 @@ MAINTAINER nimmis <kjell.havneskold@gmail.com>
 # disable interactive functions
 ENV DEBIAN_FRONTEND noninteractive
 
-WORKDIR /app
 ADD . /app
 
 RUN apt-get update && \
@@ -21,4 +20,4 @@ cd /tmp && curl -sS https://getcomposer.org/installer | php && mv composer.phar 
 && curl -sL https://deb.nodesource.com/setup_8.x | bash && apt-get install nodejs \
 && rm -rf /var/lib/apt/lists/*
 
-RUN cd /app && ./setup.sh
+RUN /app/setup.sh
