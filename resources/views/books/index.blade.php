@@ -12,7 +12,7 @@
             <thead>
                 <tr>
                     <th>Title</th>
-                    <th>Authors</th>
+                    <th>Author</th>
                     <th>Delete</th>
                 </tr>
             </thead>
@@ -20,7 +20,7 @@
                 @foreach ($books as $book)
                 <tr>
                     <td>{{ $book->title }}</td>
-                    <td>{{ $book->formatAuthors() }}</td>
+                    <td>{{ $book->author }}</td>
                     <td>
                         <form action="{{url('books', $book)}}" method="POSt">
                             {{ method_field('DELETE') }}
