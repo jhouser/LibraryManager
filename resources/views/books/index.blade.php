@@ -12,12 +12,12 @@
             <thead>
                 <tr>
                     <th>
-                        <a href="{{action('BookController@index', ['sortKey' => 'title', 'direction' => app('request')->input('direction') == 'asc' ? 'desc' : 'asc' ])}}">
+                        <a href="{{App\Helper\SortingHelper::getSortingLink('title')}}">
                             Title
                         </a>
                     </th>
                     <th>
-                        <a href="{{action('BookController@index', ['sortKey' => 'author', 'direction' => app('request')->input('direction') == 'asc' ? 'desc' : 'asc' ])}}">
+                        <a href="{{App\Helper\SortingHelper::getSortingLink('author')}}">
                             Author
                         </a>
                     </th>
