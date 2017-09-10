@@ -11,8 +11,16 @@
         <table class="table table-bordered table-hover table-responsive">
             <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Author</th>
+                    <th>
+                        <a href="{{action('BookController@index', ['sortKey' => 'title', 'direction' => app('request')->input('direction') == 'asc' ? 'desc' : 'asc' ])}}">
+                            Title
+                        </a>
+                    </th>
+                    <th>
+                        <a href="{{action('BookController@index', ['sortKey' => 'author', 'direction' => app('request')->input('direction') == 'asc' ? 'desc' : 'asc' ])}}">
+                            Author
+                        </a>
+                    </th>
                     <th>Delete</th>
                 </tr>
             </thead>
