@@ -18,10 +18,19 @@ class BookController extends Controller
         $title = $request->input('title');
         $author = $request->input('author');
         
-        $books = Book::where([
+        $sortKey = $request->input('sortKey');
+        $sortDirection = $request->input('direction');
+        
+        $bookQuery = Book::where([
             ['title', 'like', "%$title%"],
             ['author', 'like', "%$author%"]
-        ])->paginate(10);
+        ]);
+        
+        if (!empty($sortKey) && !empty($sortDirection)) {
+            $bookQuery->orderBy($sortKey, $sortDirection);
+        }
+        
+        $books = $bookQuery->paginate(10);
         
         return view('books.index')->withBooks($books);
     }
