@@ -21,7 +21,7 @@ class BookController extends Controller
         
         $books = Book::whereHas('authors', function($query) use ($author) {
             $query->where('name', 'like', "%$author%");
-        })->where('title', 'like', "%$title%")->get();
+        })->where('title', 'like', "%$title%")->paginate(10);
         
         return view('books.index')->withBooks($books);
     }
