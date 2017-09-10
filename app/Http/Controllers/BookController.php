@@ -11,11 +11,19 @@ class BookController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('books.index')->withBooks(Book::all());
+        $title = $request->input('title');
+        $author = $request->input('author');
+        
+        $books = Book::whereHas('authors', function($query) use ($author) {
+            $query->where('name', 'like', "%$author%");
+        })->where('title', 'like', "%$title%")->get();
+        
+        return view('books.index')->withBooks($books);
     }
 
     /**

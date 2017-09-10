@@ -3,6 +3,7 @@
 @section('content')
 <div class="row">
     @include('books.form')
+    @include('books.search')
 </div>
 <hr>
 <div class="row">
