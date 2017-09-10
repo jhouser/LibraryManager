@@ -1,8 +1,10 @@
 @extends('app')
 @section('title', 'Books')
 @section('content')
-
-@include('books.form')
+<div class="row">
+    @include('books.form')
+</div>
+<hr>
 <div class="row">
     <div class="col-md-12">
         <table class="table table-bordered table-hover table-responsive">

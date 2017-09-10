@@ -15,6 +15,6 @@ class Book extends Model
         foreach ($this->authors as $author) {
             $names[] = $author->name;
         }
-        return implode(',', $names);
+        return implode(', ', $names);
     }
 }

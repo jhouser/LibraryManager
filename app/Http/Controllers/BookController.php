@@ -40,7 +40,7 @@ class BookController extends Controller
         }
         $book->save();
         $book->authors()->attach($authorIds);
-       
+       return back();
     }
 
     /**
