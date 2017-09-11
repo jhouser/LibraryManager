@@ -40,7 +40,12 @@
                 @endforeach
             </tbody>
         </table>
-        {{ $books->links() }}
+        {{ $books->appends([
+                'sortKey' => request()->input('sortKey'),
+                'direction' => request()->input('direction'),
+                'title' => request()->input('title'),
+                'author' => request()->input('author'),
+            ])->links() }}
     </div>
 </div>
 @stop

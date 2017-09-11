@@ -17,8 +17,8 @@ class BookController extends Controller {
         $title = $request->input('title');
         $author = $request->input('author');
 
-        $sortKey = $request->input('sortKey');
-        $sortDirection = $request->input('direction');
+        $sortKey = $request->input('sortKey') ?? 'title';
+        $sortDirection = $request->input('direction') ?? 'asc';
 
         $bookQuery = Book::where([
                     ['title', 'like', "%$title%"],
