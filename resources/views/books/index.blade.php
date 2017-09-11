@@ -1,7 +1,7 @@
 @extends('app')
 @section('title', 'Books')
 @section('content')
-<div class="row">
+<div class="row" id="books-form-container">
     @include('books.form')
     @include('books.search')
 </div>
