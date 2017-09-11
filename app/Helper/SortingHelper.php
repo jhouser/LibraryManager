@@ -3,7 +3,7 @@
 namespace App\Helper;
 
 class SortingHelper {
-    
+
     /**
      * Generates a sorting url to use for sorting data on an index page
      * @param string $field Name of the field to sort on
@@ -13,7 +13,8 @@ class SortingHelper {
         $params = app('request')->input();
         $params['sortKey'] = $field;
         $params['direction'] = (!empty($params['direction']) && $params['direction'] == 'asc') ? 'desc' : 'asc';
-        
+
         return route($route, $params);
     }
+
 }
