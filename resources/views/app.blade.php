@@ -17,6 +17,13 @@
             </div>
 
             <div id="content">
+                <div class="row">
+                    @if (session()->get('success'))
+                        <div class='bg-success app-messages success-message'>
+                            {{ session()->get('success') }}
+                        </div>
+                    @endif
+                </div>
                 @yield('content')
             </div>
         </div>

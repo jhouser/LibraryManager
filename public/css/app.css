@@ -7,3 +7,12 @@
 #books-form-container .btn {
     margin-left: 15px;
 }
+
+.app-messages {
+    padding: 10px 10px 10px 20px;
+    font-weight: bold;
+}
+
+.success-message {
+    color: green;
+}
