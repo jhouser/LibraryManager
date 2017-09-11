@@ -11,17 +11,17 @@
         <table class="table table-bordered table-hover table-responsive">
             <thead>
                 <tr>
-                    <th>
+                    <th class="text-center">
                         <a href="{{App\Helper\SortingHelper::getSortingLink('books.index', 'title')}}">
                             Title
                         </a>
                     </th>
-                    <th>
+                    <th class="text-center">
                         <a href="{{App\Helper\SortingHelper::getSortingLink('books.index', 'author')}}">
                             Author
                         </a>
                     </th>
-                    <th>Delete</th>
+                    <th class="text-center">Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,7 +29,7 @@
                 <tr>
                     <td>{{ $book->title }}</td>
                     <td>{{ $book->author }}</td>
-                    <td>
+                    <td class="text-center">
                         <form action="{{url('books', $book)}}" method="POSt">
                             {{ method_field('DELETE') }}
                             {{csrf_field()}}
