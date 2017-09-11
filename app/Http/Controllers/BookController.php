@@ -46,7 +46,7 @@ class BookController extends Controller {
             'author' => 'required'
         ]);
         Book::create($data);
-        return back();
+        return back()->with('success', $data['title'] . ' was added to the library!');
     }
 
     /**
@@ -56,8 +56,9 @@ class BookController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy(Book $book) {
+        $title = $book->title;
         $book->delete();
-        return redirect()->route('books.index');
+        return redirect()->route('books.index')->with('success', $title . ' was removed from the library!');
     }
 
 }

@@ -1,5 +1,5 @@
 <div class="col-md-6">
-    <form method="post">
+    <form action="{{url('books')}}" method="post">
         {{csrf_field()}}
         <div class="row">
             <div class="col-md-12">
