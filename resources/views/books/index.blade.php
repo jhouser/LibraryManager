@@ -12,12 +12,12 @@
             <thead>
                 <tr>
                     <th>
-                        <a href="{{App\Helper\SortingHelper::getSortingLink('title')}}">
+                        <a href="{{App\Helper\SortingHelper::getSortingLink('books.index', 'title')}}">
                             Title
                         </a>
                     </th>
                     <th>
-                        <a href="{{App\Helper\SortingHelper::getSortingLink('author')}}">
+                        <a href="{{App\Helper\SortingHelper::getSortingLink('books.index', 'author')}}">
                             Author
                         </a>
                     </th>

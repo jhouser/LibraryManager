@@ -9,11 +9,11 @@ class SortingHelper {
      * @param string $field Name of the field to sort on
      * @return string URL to be inserted into an href attribute
      */
-    public static function getSortingLink($field) {
+    public static function getSortingLink($route, $field) {
         $params = app('request')->input();
         $params['sortKey'] = $field;
         $params['direction'] = (!empty($params['direction']) && $params['direction'] == 'asc') ? 'desc' : 'asc';
         
-        return route(\Route::currentRouteName(), $params);
+        return route($route, $params);
     }
 }
