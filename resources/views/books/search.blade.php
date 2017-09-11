@@ -18,7 +18,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <button class="btn btn-success" type="submit">Search</button>
+                <button class="btn btn-success col-md-2" type="submit">Search</button>
             </div>
         </div>
     </form>

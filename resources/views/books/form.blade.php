@@ -19,7 +19,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <button class="btn btn-success" type="submit">Add</button>
+                <button class="btn btn-success col-md-2" type="submit">Add</button>
             </div>
         </div>
     </form>
